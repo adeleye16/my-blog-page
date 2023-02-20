@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} 
+My Blog
+{% endblock title %}
+
+{% block css_file %}
+<link rel="stylesheet" href="{% static 'home/static/post.css' %}"/>
+<link rel="stylesheet" href="{% static '' %}index.css">
+{% comment %} <link rel="stylesheet" href="{% static '' %}post.css"> {% endcomment %}
+{% endblock css_file %}
+
+{% block content %}
+
+
+<section id="welcome"> 
+  <header>
+    <img src="{% static '' %}image/baby.jpg" alt="TrippleA - The Auhor Of This Blog" />
+    <h2>TRIPPLEAAA'S BLOG</h2>
+  </header>
+  <p>Hi, I am TrippleA and i love to blog about tech and the world!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+
+  <ul>
+    {% for post in posts %}
+      {% include 'post.html' %}
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>I love programming, I love to help others
+    and I enjoy exploring new technologies in general!
+  </p> 
+  <p>
+    My goal is to keep on growing as a developer - and if I could help you to do
+    thesame, I'd be very happy!
+  </p>
+</section>
+
+{% endblock content %}
